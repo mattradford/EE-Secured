@@ -1,9 +1,9 @@
 EE-Secured
 ==========
 
-Install script and files for a secure WordPress server using rtcamp's [EasyEngine](https://github.com/rtCamp/easyengine/), based on Ubuntu 14.04 x64.
+Install script and files for a secure WordPress server using rtcamp's [EasyEngine](https://github.com/rtCamp/easyengine/).
 
-Intended for a 512MB DigitalOcean droplet, but can be used for any VPS with modification.
+Intended for a 512MB DigitalOcean droplet running Ubuntu 14.04 x64, but can be used for any VPS with modification.
 
 The script:
 
@@ -26,6 +26,8 @@ In order to run the script, create a new droplet, SSH into it, then:
 * `wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/do-install.sh`
 * `chmod +x do-install.sh`
 * `./do-install.sh`
+
+You will need to answer some prompts as the script runs.
 
 After the script has run, log in to the server again using a new terminal to check everything is correct. Then alter EasyEngine's conf file (`/etc/easyengine/ee.conf`) to suit your defaults.
 

@@ -129,8 +129,8 @@ ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # add default server page
 wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/index.php
-mv index.php /usr/share/www
-rm /usr/share/www/index.html
+mv index.php /usr/share/nginx/www
+rm /usr/share/nginx/www/index.html
 
 # reload nginx
 service nginx reload
