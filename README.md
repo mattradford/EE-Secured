@@ -38,6 +38,7 @@ The server is then ready for `ee site create` to start adding WordPress sites.
 * automate [CloudFlare IPv4 range addition](https://www.cloudflare.com/ips-v4)
 * integrate UFW with fail2ban
 * check brute force protection
+* email ssh login command to a specified email address
 
 ## License
 
