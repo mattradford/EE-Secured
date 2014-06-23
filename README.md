@@ -14,7 +14,7 @@ The script:
 * adds & enables 1GB swap
 * adds & enables UFW
   * configures rules
-  * whitelists CloudFlare IP Ranges
+  * whitelists CloudFlare IPIP Ranges
 * configures unattended security updates
 * installs fail2ban
 * installs EasyEngine
@@ -24,4 +24,9 @@ Personally, I then log in to the server again using a key & the new port and che
 
 The server is then ready for `ee site create` command to start adding WordPress sites.
 
+## TO DO
+* automate [CloudFlare IPv4 range addition](https://www.cloudflare.com/ips-v4)
 
+## License
+
+[GPL] (http://www.gnu.org/licenses/gpl-2.0.txt).
