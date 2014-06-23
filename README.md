@@ -20,7 +20,13 @@ The script:
 * installs EasyEngine
 * alters default web page for server to show the hostname
 
-Personally, I then log in to the server again using a key & the new port and check everything is correct. Then I alter EasyEngine's conf file (`/etc/easyengine`).
+In order to run the script, create a new droplet, SSH into it, then:
+
+* `curl https://raw.githubusercontent.com/mattradford/EE-Secured/master/do-install.sh`
+* `chmod +x do-install.sh`
+* `./do-install.sh`
+
+After the script has run, I then log in to the server again using a key & the new port and check everything is correct. Then I alter EasyEngine's conf file (`/etc/easyengine`).
 
 The server is then ready for `ee site create` command to start adding WordPress sites.
 
