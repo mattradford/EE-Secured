@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>wp5.mattrad.co.uk</title>
+<title><?php echo gethostname(); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oops">
 <style>
@@ -42,8 +42,7 @@ a:hover, a:focus {
 <body>
 <div class="parent">
   <div class="sibling">
-  	<h1><?php
-echo gethostname(); ?></h1>
+  	<h1><?php echo gethostname(); ?></h1>
 
   </div>
 </div>
