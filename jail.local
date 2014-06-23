@@ -177,7 +177,6 @@ maxretry = 2
  
 enabled = true
 port    = http,https
-banaction = ufw-nginx
 filter  = apache-auth
 logpath = /var/log/nginx*/*error.log
 maxretry = 6
