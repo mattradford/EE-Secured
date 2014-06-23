@@ -126,10 +126,14 @@ wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/default
 mv default /etc/nginx/sites-available/default
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx reload
 
 # add default server page
 wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/index.php
+mv index.php /usr/share/www
+rm /usr/share/www/index.html
+
+# reload nginx
+service nginx reload
 
 # and we're done!
 s10=$(hostname  -I | cut -f1 -d' ')
