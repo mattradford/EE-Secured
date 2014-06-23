@@ -9,12 +9,14 @@ The script:
 
 * updates APT
 * adds & enables 1GB swap
-* adds & enables UFW
-  * configures rules
-  * whitelists CloudFlare IPIP Ranges
 * configures unattended security updates
 * installs fail2ban
 * installs EasyEngine
+* changes default SSH port to a random one and allows only key-based login
+* adds & enables UFW
+  * configures rules, including randomly assigned SSH port
+  * whitelists CloudFlare IPv4 Ranges
+* prints the ssh command to access the new server
 
 In order to run the script, create a new droplet, SSH into it, then:
 
@@ -22,12 +24,12 @@ In order to run the script, create a new droplet, SSH into it, then:
 * `chmod +x do-install.sh`
 * `./do-install.sh`
 
-After the script has run, I then log in to the server again using a key & the new port and check everything is correct. Then I alter EasyEngine's conf file (`/etc/easyengine`).
+After the script has run, I then log in to the server again using a key & the new port and check everything is correct. Then I alter EasyEngine's conf file (`/etc/easyengine/ee.conf`) to suit my defaults.
 
 The server is then ready for `ee site create` command to start adding WordPress sites.
 
 ## To Do
-* change default SSH port and allow only key-based login
+* 
   * (assumes that a key has already been added to the server during droplet creation)
 * configure other fail2ban rules
 * alter default web page for server to show the hostname
