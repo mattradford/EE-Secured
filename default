@@ -37,9 +37,9 @@ server {
 	
 	# allow PHP
 	location ~ \.php$ {
-		try_files $uri =404;
-		include fastcgi_params;
-		fastcgi_pass php;
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		include /etc/nginx/fastcgi_params;
 	}
 
 	location /doc/ {
