@@ -117,7 +117,7 @@ rm nginx-wp-login
 # download customised jail.local
 wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/jail.local
 echo > /etc/fail2ban/jail.local
-chmox 644 /etc/fail2ban/jail.local
+chmod 644 /etc/fail2ban/jail.local
 
 # set fail2ban ssh port
 sed -i "s/sshrandport/$s7/g" /etc/ssh/sshd_config
