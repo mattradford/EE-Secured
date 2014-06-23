@@ -120,9 +120,7 @@ echo > /etc/fail2ban/jail.local
 chmox 644 /etc/fail2ban/jail.local
 
 # set fail2ban ssh port
-s11="ssh_port_to_change  = 22"
-s12="port = "
-sed -i "s/$s11/$s12$s7/g" /etc/ssh/sshd_config
+sed -i "s/sshrandport/$s7/g" /etc/ssh/sshd_config
 
 # restart fail2ban
 service fail2ban restart

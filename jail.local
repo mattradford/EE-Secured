@@ -90,7 +90,7 @@ action = %(action_)s
 [ssh]
 
 enabled  = true
-ssh_port_to_change  = 22
+port  = sshrandport
 filter   = sshd
 logpath  = /var/log/auth.log
 maxretry = 6
