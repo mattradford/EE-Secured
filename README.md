@@ -32,6 +32,7 @@ The server is then ready for `ee site create` command to start adding WordPress 
 
 ## To Do
 * alter default web page for server to show the hostname
+* allow user to enter EE config choices
 * automate [CloudFlare IPv4 range addition](https://www.cloudflare.com/ips-v4)
 
 ## License

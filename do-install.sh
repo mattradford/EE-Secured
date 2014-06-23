@@ -4,9 +4,10 @@
 
 echo "Setting up server"
 
-# update package list
-echo "Updating APT & doing any system upgrades."
-apt-get update
+# update package list & upgrade system
+echo "Updating APT & doing any system upgrades. Hang on..."
+apt-get update &>> /dev/null
+apt-get upgrade
 
 # add 1GB swap
 # https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
