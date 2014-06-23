@@ -32,7 +32,6 @@ After the script has run, log in to the server again using a new terminal to che
 The server is then ready for `ee site create` to start adding WordPress sites.
 
 ## To Do
-* alter default web page for server to show the hostname
 * allow user to enter EE config choices
 * automate [CloudFlare IPv4 range addition](https://www.cloudflare.com/ips-v4)
 
