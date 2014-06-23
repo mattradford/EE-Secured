@@ -16,7 +16,7 @@ The script:
 * adds & enables UFW
   * configures rules, including randomly assigned SSH port
   * whitelists CloudFlare IPv4 Ranges
-* installs fail2ban with WP brute force protection
+* installs fail2ban with [WP brute force protection](http://abdussamad.com/archives/616-Stop-Brute-Force-WordPress-Login-Attempts-with-Fail2Ban.html)
   * fail2ban active on the random SSH port
 * prints the ssh command to access the new server
 

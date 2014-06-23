@@ -46,24 +46,6 @@ echo "APT::Periodic::Unattended-Upgrade \"1\";" >> /etc/apt/apt.conf.d/10periodi
 # unattended upgrades configured
 echo "unattended-upgrades configured"
 
-### install fail2ban
-
-apt-get install fail2ban
-
-# copy jail.local
-cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-
-# download fail2ban config and write it to a new file
-wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/nginx-req-limit.conf
-echo > /etc/fail2ban/filter.d/nginx-req-limit.conf
-cat nginx-req-limit.conf >> /etc/fail2ban/filter.d/nginx-req-limit.conf
-
-# remove downloaded file
-rm nginx-req-limit.conf 
-
-# restart fail2ban
-service fail2ban restart
-
 # install and configure EasyEngine
 curl -sL rt.cx/ee | sudo bash
 ee system install
@@ -116,6 +98,34 @@ ufw enable
 
 # ufw installed
 echo "UFW installed and enabled"
+
+### install fail2ban
+
+apt-get install fail2ban
+
+# copy jail.local
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+# download fail2ban wp-login config and write it to a new file
+wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/nginx-wp-login.conf
+echo > /etc/fail2ban/filter.d/nginx-wp-login.conf
+cat nginx-wp-login.conf >> /etc/fail2ban/filter.d/nginx-wp-login.conf
+
+# remove downloaded file
+rm nginx-wp-login
+
+# download customised jail.local
+wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/jail.local
+echo > /etc/fail2ban/jail.local
+chmox 644 /etc/fail2ban/jail.local
+
+# set fail2ban ssh port
+s11="ssh_port_to_change  = 22"
+s12="port = "
+sed -i "s/$s11/$s12$s7/g" /etc/ssh/sshd_config
+
+# restart fail2ban
+service fail2ban restart
 
 # and we're done!
 s10=$(hostname  -I | cut -f1 -d' ')
