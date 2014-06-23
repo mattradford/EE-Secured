@@ -26,14 +26,11 @@ In order to run the script, create a new droplet, SSH into it, then:
 * `chmod +x do-install.sh`
 * `./do-install.sh`
 
-After the script has run, I then log in to the server again using a key & the new port and check everything is correct. Then I alter EasyEngine's conf file (`/etc/easyengine/ee.conf`) to suit my defaults.
+After the script has run, log in to the server again using a new terminal to check everything is correct. Then alter EasyEngine's conf file (`/etc/easyengine/ee.conf`) to suit your defaults.
 
 The server is then ready for `ee site create` command to start adding WordPress sites.
 
 ## To Do
-* 
-
-* configure other fail2ban rules
 * alter default web page for server to show the hostname
 * automate [CloudFlare IPv4 range addition](https://www.cloudflare.com/ips-v4)
 
