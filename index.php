@@ -43,7 +43,6 @@ a:hover, a:focus {
 <div class="parent">
   <div class="sibling">
   	<h1><?php echo gethostname(); ?></h1>
-
   </div>
 </div>
 </body>

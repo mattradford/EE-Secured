@@ -128,6 +128,9 @@ rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx reload
 
+# add default server page
+wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/index.php
+
 # and we're done!
 s10=$(hostname  -I | cut -f1 -d' ')
 echo "$(tput setaf 1)Now log in using a new terminal and the following command:$(tput sgr 0)"

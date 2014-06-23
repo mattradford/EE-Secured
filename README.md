@@ -18,6 +18,7 @@ The script:
   * whitelists CloudFlare IPv4 Ranges
 * installs fail2ban with [WP brute force protection](http://abdussamad.com/archives/616-Stop-Brute-Force-WordPress-Login-Attempts-with-Fail2Ban.html)
   * fail2ban active on the random SSH port
+* changes the default server page to show the hostname
 * prints the ssh command to access the new server
 
 In order to run the script, create a new droplet, SSH into it, then:
@@ -28,7 +29,7 @@ In order to run the script, create a new droplet, SSH into it, then:
 
 After the script has run, log in to the server again using a new terminal to check everything is correct. Then alter EasyEngine's conf file (`/etc/easyengine/ee.conf`) to suit your defaults.
 
-The server is then ready for `ee site create` command to start adding WordPress sites.
+The server is then ready for `ee site create` to start adding WordPress sites.
 
 ## To Do
 * alter default web page for server to show the hostname
