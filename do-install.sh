@@ -1,11 +1,12 @@
 #!/bin/bash
 # server setup script for 512MB DO Droplet
+# assumes you're running this as root
 
 echo "Setting up server"
 
 # update package list
-echo "Updating APT & doing any system upgrades. Hang on..."
-apt-get update &>> /dev/null
+echo "Updating APT & doing any system upgrades."
+apt-get update
 
 # add 1GB swap
 # https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
@@ -103,24 +104,18 @@ echo "UFW installed and enabled"
 
 apt-get install fail2ban
 
-# copy jail.local
-cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-
 # download fail2ban wp-login config and write it to a new file
 wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/nginx-wp-login.conf
-echo > /etc/fail2ban/filter.d/nginx-wp-login.conf
-cat nginx-wp-login.conf >> /etc/fail2ban/filter.d/nginx-wp-login.conf
-
-# remove downloaded file
-rm nginx-wp-login
+mv nginx-wp-login.conf /etc/fail2ban/filter.d/nginx-wp-login.conf
+chmod 644 /etc/fail2ban/jail.local
 
 # download customised jail.local
 wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/jail.local
-echo > /etc/fail2ban/jail.local
+mv jail.local /etc/fail2ban/jail.local
 chmod 644 /etc/fail2ban/jail.local
 
 # set fail2ban ssh port
-sed -i "s/sshrandport/$s7/g" /etc/ssh/sshd_config
+sed -i "s/sshrandport/$s7/g" /etc/fail2ban/jail.local
 
 # restart fail2ban
 service fail2ban restart
