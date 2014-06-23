@@ -121,6 +121,13 @@ sed -i "s/sshrandport/$s7/g" /etc/fail2ban/jail.local
 # restart fail2ban
 service fail2ban restart
 
+# add default server
+wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/default
+mv default /etc/nginx/sites-available/default
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx reload
+
 # and we're done!
 s10=$(hostname  -I | cut -f1 -d' ')
 echo "$(tput setaf 1)Now log in using a new terminal and the following command:$(tput sgr 0)"
