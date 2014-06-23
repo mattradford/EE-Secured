@@ -36,6 +36,8 @@ The server is then ready for `ee site create` to start adding WordPress sites.
 ## To Do
 * allow user to enter EE config choices
 * automate [CloudFlare IPv4 range addition](https://www.cloudflare.com/ips-v4)
+* integrate UFW with fail2ban
+* check brute force protection
 
 ## License
 
