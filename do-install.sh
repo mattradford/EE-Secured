@@ -53,7 +53,7 @@ Option: ' REPLY
                         if [ $swapsize = 256 ] || [ $swapsize = 512 ]
                         then 
                                 echo "Allocating "$swapsize"MB swapfile"                                
-                                #fallocate -l ${swapsize}M /swapfile
+                                fallocate -l ${swapsize}M /swapfile
                         else
                                 echo "Allocating "$swapsize"GB swapfile"
                                 fallocate -l ${swapsize}G /swapfile
