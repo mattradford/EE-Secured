@@ -72,6 +72,10 @@ ufw default allow outgoing
 ufw allow $s7
 ufw allow www
 ufw allow https
+
+# EasyEngine Admin Port
+ufw allow 22222
+
 # allow outgoing mail only, not ufw allow mail
 ufw allow 25
 ufw allow mysql
