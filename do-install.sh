@@ -1,5 +1,5 @@
 #!/bin/bash
-# server setup script for 512MB DO Droplet
+# server setup script for DigitalOcean Droplet
 # assumes you're running this as root
 
 echo "Setting up server"
@@ -9,17 +9,64 @@ echo "Updating APT & doing any system upgrades. Hang on..."
 apt-get update &>> /dev/null
 apt-get upgrade
 
-# add 1GB swap
+# Checks if swap is present and adds if required
 # https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+# http://programmaticponderings.wordpress.com/2013/12/19/scripting-linux-swap-space/ 
 
-sudo fallocate -l 1G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
+phymem=$(free -m|awk '/^Mem:/{print $2}') 
 
-# swap done
-echo "Swap created and enabled"
+# does the swap file already exist?
+grep -q "swapfile" /etc/fstab
+
+# if not then create it
+if [ $? -ne 0 ]
+then
+        while true; do
+                read -p 'Swapfile not found. The server has '$phymem'MB of RAM. Add a swapfile? (y/n) ' yn
+                case $yn in
+                        [Yy]* ) addswap=yes; break;; 
+                        [Nn]*) echo 'No swapfile added'; addswap=no; exit ;;
+                        * ) echo "Please answer y or n.";;
+                esac
+        done
+        if [ $addswap = yes ]
+        then
+                while :; do
+                        read -rp 'Choose a swapfile size:
+1) 256MB
+2) 512MB
+3) 1GB
+4) 2GB
+5) 4GB
+6) 8GB
+                                
+Option: ' REPLY
+                        case "$REPLY" in
+                                1) swapsize=256 ;;
+                                2) swapsize=512 ;;
+                                3) swapsize=1 ;;
+                                4) swapsize=2 ;;
+                                5) swapsize=4 ;;
+                                6) swapsize=8 ;;
+                                *) continue ;;
+                        esac
+                        if [ $swapsize = 256 ] || [ $swapsize = 512 ]
+                        then 
+                                echo "Allocating "$swapsize"MB swapfile"                                
+                                #fallocate -l ${swapsize}M /swapfile
+                        else
+                                echo "Allocating "$swapsize"GB swapfile"
+                                fallocate -l ${swapsize}G /swapfile
+                        fi
+                                chmod 600 /swapfile
+                                mkswap /swapfile
+                                swapon /swapfile
+                                echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
+                                echo "Swapfile created and enabled."
+                        break
+                done
+        fi
+fi
 
 # add nightly security updates
 # http://blog.vigilcode.com/2011/04/ubuntu-server-initial-security-quick-secure-setup-part-i/
