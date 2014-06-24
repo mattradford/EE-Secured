@@ -183,8 +183,8 @@ wget https://raw.githubusercontent.com/mattradford/EE-Secured/master/index.php
 mv index.php /usr/share/nginx/www
 rm /usr/share/nginx/www/index.html
 
-# reload nginx
-service nginx reload
+# test & reload nginx
+nginx -t && service nginx reload
 
 # and we're done!
 s10=$(hostname  -I | cut -f1 -d' ')
