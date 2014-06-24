@@ -3,12 +3,12 @@ EE-Secured
 
 Install script and files for a secure WordPress server using rtcamp's [EasyEngine](https://github.com/rtCamp/easyengine/).
 
-Intended for a 512MB DigitalOcean droplet running Ubuntu 14.04 x64, but can be used for any VPS with modification.
+Intended for a DigitalOcean droplet running Ubuntu 14.04 x64, but can be used for any VPS with modification.
 
 The script:
 
 * updates APT & upgrades system
-* adds & enables 1GB swap
+* checks if swap is present, if not user can choose to add a swapfile
 * configures unattended security updates
 * installs EasyEngine
 * changes default SSH port to a random one and allows only key-based login
