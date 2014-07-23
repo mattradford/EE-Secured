@@ -96,8 +96,8 @@ echo "APT::Periodic::Unattended-Upgrade \"1\";" >> /etc/apt/apt.conf.d/10periodi
 echo "unattended-upgrades configured"
 
 # install and configure EasyEngine
-curl -sL rt.cx/ee | sudo bash
-ee system install
+wget -qO ee rt.cx/ee && sudo bash ee 
+ee stack install
 
 # alter SSH login 
 s5="Port 22"
