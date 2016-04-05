@@ -1,6 +1,8 @@
 EE-Secured
 ==========
 
+* Just here for reference now, as EE has changed quite a bit. Still some good bash in here though *
+
 Install script and files for a secure WordPress server using rtcamp's [EasyEngine](https://github.com/rtCamp/easyengine/).
 
 Intended for a DigitalOcean droplet running Ubuntu 14.04 x64, but can be used for any VPS with modification.
