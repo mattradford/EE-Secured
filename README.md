@@ -1,7 +1,7 @@
 EE-Secured
 ==========
 
-* Just here for reference now, as EE has changed quite a bit. Still some good bash in here though *
+* Just here for reference now, as EE has changed quite a bit. Still some good bash in here though
 
 Install script and files for a secure WordPress server using rtcamp's [EasyEngine](https://github.com/rtCamp/easyengine/).
 
