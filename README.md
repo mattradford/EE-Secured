@@ -1,7 +1,7 @@
 EE-Secured
 ==========
 
-* Just here for reference now, as EE has changed quite a bit. Still some good bash in here though
+## Just here for reference now, as EE has changed quite a bit. Still some good bash in here though
 
 Install script and files for a secure WordPress server using rtcamp's [EasyEngine](https://github.com/rtCamp/easyengine/).
 
@@ -34,13 +34,6 @@ You will need to answer some prompts as the script runs.
 After the script has run, log in to the server again using a new terminal to check everything is correct. Then alter EasyEngine's conf file (`/etc/easyengine/ee.conf`) to suit your defaults.
 
 The server is then ready for `ee site create` to start adding WordPress sites.
-
-## To Do
-* allow user to enter EE config choices
-* automate [CloudFlare IPv4 range addition](https://www.cloudflare.com/ips-v4)
-* integrate UFW with fail2ban
-* check brute force protection
-* email ssh login command to a specified email address
 
 ## License
 
